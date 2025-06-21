@@ -1,0 +1,6 @@
+langchain
+openai
+boto3
+azure-identity
+azure-mgmt-compute
+requests
