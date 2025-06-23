@@ -1,1 +1,0 @@
-aiohttp\nrequests\nbotbuilder-core==4.15.0
