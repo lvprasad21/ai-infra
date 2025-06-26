@@ -1,0 +1,19 @@
+---
+- name: Verify Hostname and IP Connectivity
+  hosts: all  # Targets all hosts in inventory
+  gather_facts: true  # Collects system info (hostname, IP, etc.)
+  tasks:
+    - name: Display Hostname
+      ansible.builtin.debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
+    - name: Display IP Addresses
+      ansible.builtin.debug:
+        msg: "IPs: {{ ansible_all_ipv4_addresses }}"
+
+    - name: Ping Test (Internal)
+      ansible.builtin.ping:
+
+    - name: Ping Google DNS (External Connectivity Test)
+      ansible.builtin.command: ping -c 4 8.8.8.8
+      ignore_errors: true  # Continues if external ping fails
